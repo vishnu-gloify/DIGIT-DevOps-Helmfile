@@ -1,14 +1,15 @@
 global:
-  domain: digit-lts.digit.org
+  domain: <domain_name>
 configmaps:
   egov-config:
     data:
-      db-host: "postgresql.backbone-helmfile:5432" ## Add db-host name eg: egov-demo.database.azure.com
-      db-name: "postgres" ## Add db-name
-      db-url: "jdbc:postgresql://postgresql.backbone-helmfile:5432/postgres"
+      db-host: <db_host_name> ## Add db-host name eg: egov-demo.database.azure.com
+      db-name: <db_name> ## Add db-name
+      db-url: "jdbc:postgresql://<db_host_name>/<db_name>"
       es-host: "elasticsearch-data.backbone-helmfile"
       es-indexer-host: "http://elasticsearch-data.backbone-helmfile:9200/"
       kafka-brokers: "kafka-kraft-controller-headless.backbone-helmfile:9092"
+      egov-services-fqdn-name: https://<domain_name>/
 egov-user:
   username: adminn
   password: eGov@123
