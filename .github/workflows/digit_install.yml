@@ -261,6 +261,8 @@ jobs:
             # Move Helmfile to a location in your PATH
           sudo mv helmfile /usr/local/bin/helmfile
 
+          helm plugin install https://github.com/databus23/helm-diff
+
             # Verify installation
           helmfile --version        
       - name: digit deployment
@@ -357,7 +359,10 @@ jobs:
           sudo mv helmfile /usr/local/bin/helmfile
 
             # Verify installation
-          helmfile --version        
+          helmfile --version 
+          
+          helm plugin install https://github.com/databus23/helm-diff
+
       - name: digit deployment
         run: helmfile -f digit-helmfile.yaml apply
         working-directory: deploy-as-code 
