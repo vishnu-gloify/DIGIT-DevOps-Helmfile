@@ -227,6 +227,14 @@ jobs:
           wget https://github.com/mozilla/sops/releases/download/v3.7.1/sops-v3.7.1.linux
           chmod +x sops-v3.7.1.linux
           sudo mv sops-v3.7.1.linux /usr/local/bin/sops
+      - name: Set up Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: 'latest' # Specify the version of Helm
+    
+      - name: Install Helm Diff Plugin
+        run: helm plugin install https://github.com/databus23/helm-diff  
+          
       - name: Install Helmfile
         run: |
           HELMFILE_VERSION="v0.140.0"
@@ -242,7 +250,7 @@ jobs:
 
             # Verify installation
           helmfile --version
-
+          
       - name: digit deployment
         run: helmfile apply
         working-directory: deploy-as-code 
