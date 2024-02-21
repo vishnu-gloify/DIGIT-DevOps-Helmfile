@@ -231,10 +231,7 @@ jobs:
         uses: azure/setup-helm@v1
         with:
           version: 'latest' # Specify the version of Helm
-    
-      - name: Install Helm Diff Plugin
-        run: helm plugin install https://github.com/databus23/helm-diff  
-          
+
       - name: Install Helmfile
         run: |
           HELMFILE_VERSION="v0.140.0"
@@ -250,6 +247,10 @@ jobs:
 
             # Verify installation
           helmfile --version
+      
+      - name: Helmfile init
+        run: helmfile init
+        working-directory: deploy-as-code    
           
       - name: digit deployment
         run: helmfile apply
