@@ -292,8 +292,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build project
-        run: echo "Githubactions Workflow has started"
+      - name: Deploying because changes were made in deploy-as-code
+        run: echo "Deploying because changes were made in deploy-as-code"
       - name: Displaying the input parameters provided
         run: cat input.yaml
         working-directory: infra-as-code/terraform/sample-aws
