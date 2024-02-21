@@ -246,14 +246,10 @@ jobs:
           sudo mv helmfile /usr/local/bin/helmfile
 
             # Verify installation
-          helmfile --version
-      
-      - name: Helmfile init
-        run: helmfile init
-        working-directory: deploy-as-code    
+          helmfile --version    
           
       - name: digit deployment
-        run: helmfile apply
+        run: helmfile -f digit-helmfile.yaml apply
         working-directory: deploy-as-code 
       - name: Displaying the Loadbalancer ID
         run: |
