@@ -246,10 +246,7 @@ jobs:
           sudo mv helmfile /usr/local/bin/helmfile
 
             # Verify installation
-          helmfile --version    
-      - name: hellmfile init
-        run: helmfile -f digit-helmfile.yaml init
-        working-directory: deploy-as-code    
+          helmfile --version        
       - name: digit deployment
         run: helmfile -f digit-helmfile.yaml apply
         working-directory: deploy-as-code 
