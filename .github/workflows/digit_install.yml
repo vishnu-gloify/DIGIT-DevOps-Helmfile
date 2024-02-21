@@ -45,18 +45,18 @@ jobs:
         working-directory: infra-as-code/terraform/scripts
       - name: Archive infra-as-code folder
         run: tar -czf infra-as-code.tar.gz infra-as-code/
-      - name: Archive config-as-code folder
-        run: tar -czf config-as-code.tar.gz config-as-code/
+      - name: Archive deploy-as-code folder
+        run: tar -czf deploy-as-code.tar.gz deploy-as-code/
       - name: Upload infra-as-code folder as artifact
         uses: actions/upload-artifact@v2
         with:
           name: infra-as-code-artifact
           path: infra-as-code.tar.gz
-      - name: Upload config-as-code folder as artifact
+      - name: Upload deploy-as-code folder as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: config-as-code-artifact
-          path: config-as-code.tar.gz     
+          name: deploy-as-code-artifact
+          path: deploy-as-code.tar.gz     
 
   Terraform_Infra_Creation:
     if: ${{ github.event_name == 'push' }}
@@ -76,15 +76,15 @@ jobs:
         with:
           name: infra-as-code-artifact
           path: .
-      - name: Download config-as-code folder from artifacts
+      - name: Download deploy-as-code folder from artifacts
         uses: actions/download-artifact@v2
         with:
-          name: config-as-code-artifact
+          name: deploy-as-code-artifact
           path: .
       - name: Extract infra-as-code folder
         run: tar -xzf infra-as-code.tar.gz
-      - name: Extract config-as-code folder
-        run: tar -xzf config-as-code.tar.gz 
+      - name: Extract deploy-as-code folder
+        run: tar -xzf deploy-as-code.tar.gz 
       - name: Convert YAML to ENV
         uses: dcarbone/yaml-to-env-action@main
         with:
@@ -154,18 +154,18 @@ jobs:
         working-directory: infra-as-code/terraform/sample-aws
       - name: Archive infra-as-code folder
         run: tar -czf infra-as-code.tar.gz infra-as-code/
-      - name: Archive config-as-code folder
-        run: tar -czf config-as-code.tar.gz config-as-code/
+      - name: Archive deploy-as-code folder
+        run: tar -czf deploy-as-code.tar.gz deploy-as-code/
       - name: Upload infra-as-code folder as artifact
         uses: actions/upload-artifact@v2
         with:
           name: infra-as-code-artifact
           path: infra-as-code.tar.gz
-      - name: Upload config-as-code folder as artifact
+      - name: Upload deploy-as-code folder as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: config-as-code-artifact
-          path: config-as-code.tar.gz      
+          name: deploy-as-code-artifact
+          path: deploy-as-code.tar.gz      
 
   DIGIT-deployment:
     if: ${{ github.event_name == 'push' }}
@@ -185,15 +185,15 @@ jobs:
         with:
           name: infra-as-code-artifact
           path: .
-      - name: Download config-as-code folder from artifacts
+      - name: Download deploy-as-code folder from artifacts
         uses: actions/download-artifact@v2
         with:
-          name: config-as-code-artifact
+          name: deploy-as-code-artifact
           path: .
       - name: Extract infra-as-code folder
         run: tar -xzf infra-as-code.tar.gz
-      - name: Extract config-as-code folder
-        run: tar -xzf config-as-code.tar.gz 
+      - name: Extract deploy-as-code folder
+        run: tar -xzf deploy-as-code.tar.gz 
       - name: Convert YAML to ENV
         uses: dcarbone/yaml-to-env-action@main
         with:
