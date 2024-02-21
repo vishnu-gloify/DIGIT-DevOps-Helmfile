@@ -229,7 +229,7 @@ jobs:
           sudo mv sops-v3.7.1.linux /usr/local/bin/sops            
       - name: digit deployment
         run: helmfile sync
-        working-directory: charts 
+        working-directory: deploy-as-code 
       - name: Displaying the Loadbalancer ID
         run: |
           LB_ID=$(kubectl get svc nginx-ingress-controller -n egov -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
