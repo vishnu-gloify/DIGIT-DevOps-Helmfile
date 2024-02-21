@@ -234,7 +234,7 @@ jobs:
 
       - name: Install Helmfile
         run: |
-          HELMFILE_VERSION="v0.160.0"
+          HELMFILE_VERSION="v0.140.0"
 
             # Download Helmfile
           curl -L "https://github.com/roboll/helmfile/releases/download/${HELMFILE_VERSION}/helmfile_linux_amd64" -o helmfile
@@ -247,7 +247,9 @@ jobs:
 
             # Verify installation
           helmfile --version    
-          
+      - name: hellmfile init
+        run: helmfile -f digit-helmfile.yaml init
+        working-directory: deploy-as-code    
       - name: digit deployment
         run: helmfile -f digit-helmfile.yaml apply
         working-directory: deploy-as-code 
