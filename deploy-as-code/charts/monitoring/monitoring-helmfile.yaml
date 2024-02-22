@@ -7,8 +7,8 @@ repositories:
   url: https://jaegertracing.github.io/helm-charts
 
 values:
-  - namespace: monitoring-helmfile
-  - host: digit-lts.digit.org
+  - namespace: monitoring
+  - host: digit-lts-demo.digit.org
 
 
 releases:

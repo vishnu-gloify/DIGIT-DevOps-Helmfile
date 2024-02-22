@@ -368,7 +368,7 @@ jobs:
         working-directory: deploy-as-code 
       - name: Displaying the Loadbalancer ID
         run: |
-          LB_ID=$(kubectl get svc nginx-ingress-controller -n egov -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+          LB_ID=$(kubectl get svc ingress-nginx-controller -n backbone -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
           echo "LoadBalancer ID: $LB_ID"
           echo "Thank you for installing DIGIT! 🙏 Your installation is complete and ready to roll! 🚀"
           echo "Please map the LoadBalancer ID ($LB_ID) with the domain provided in input.yaml to access the DIGIT UI"
@@ -415,7 +415,7 @@ jobs:
           aws eks update-kubeconfig --region ${{ secrets.AWS_REGION }} --name $CLUSTER_NAME
           cat ~/.kube/config > kubeconfig
       - name: Deleting Loadbalancer 
-        run: kubectl delete svc ingress-nginx-controller -n backbone-helmfile       
+        run: kubectl delete svc ingress-nginx-controller -n backbone       
       - name: Terraform Init - remotestate
         run: terraform init
         working-directory: infra-as-code/terraform/sample-aws/remote-state
