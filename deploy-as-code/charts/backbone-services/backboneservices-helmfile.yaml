@@ -88,3 +88,11 @@ releases:
   <<: *default
   values:
     - ./ingress-nginx/values.yaml
+
+- name: playground
+  installed: true
+  chart: ./playground
+  version: 0.1.0
+  <<: *default
+  values:
+    - ./playground/values.yaml
