@@ -16,12 +16,12 @@ initContainers:
     schemaTable: "egov_user_schema"
     image:
       repository: "egov-user-db"
-      tag: core-2.9-lts-egov-user-deployement-c33cfe45ab-13
+      tag: digit-lts-demo-egov-user-b3bb4de08b-14
 
 # Container Configs
 image:
   repository: "egov-user"
-  tag: core-2.9-lts-egov-user-deployement-c33cfe45ab-13
+  tag: digit-lts-demo-egov-user-b3bb4de08b-14
 replicas: "1"
 healthChecks:
   enabled: true
