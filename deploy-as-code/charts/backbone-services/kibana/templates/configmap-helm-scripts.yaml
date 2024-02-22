@@ -131,7 +131,7 @@ data:
           .then(() => {
               console.log('Cleaning Elasticsearch token');
               // Clean the Elasticsearch token
-              return requestPromise(esUrl, esTokenDeleteOptions);
+              return requestPromise(esUrl, esTokenDeleteOptions, {extraStatusCode: 404});
           })
           .then(() => {
               // After cleaning, proceed to create token and secret
@@ -140,7 +140,7 @@ data:
                   const body = JSON.parse(response);
                   const token = body.token.value
 
-                  // Encode the token in base64
+                  // Encode the token in base64 
                   const base64Token = Buffer.from(token, 'utf8').toString('base64');
 
                   // Prepare the k8s secret
