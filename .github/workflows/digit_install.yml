@@ -415,7 +415,7 @@ jobs:
           aws eks update-kubeconfig --region ${{ secrets.AWS_REGION }} --name $CLUSTER_NAME
           cat ~/.kube/config > kubeconfig
       - name: Deleting Loadbalancer 
-        run: kubectl delete svc nginx-ingress-controller -n egov       
+        run: kubectl delete svc nginx-ingress-controller -n backbone-helmfile       
       - name: Terraform Init - remotestate
         run: terraform init
         working-directory: infra-as-code/terraform/sample-aws/remote-state
