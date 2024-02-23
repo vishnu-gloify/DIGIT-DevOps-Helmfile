@@ -3,7 +3,7 @@ name: DIGIT-Install workflow
 on:
   push:
     branches:
-      - develop
+      - develop-rds
   # workflow_dispatch:
   #   inputs:
   #     destroyCommand:
