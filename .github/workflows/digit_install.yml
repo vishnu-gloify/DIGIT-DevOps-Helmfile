@@ -106,7 +106,17 @@ jobs:
         with:
           yaml-file: infra-as-code/terraform/sample-aws/input.yaml
           debug: true # Optional: set to true to output some debug information
-      # Now, use the env vars in subsequent steps     
+      # Now, use the env vars in subsequent steps
+      - name: Install dependencies
+        run: sudo apt-get install -y jq
+      - name: Convert YAML to JSON
+        run: |
+          cat deploy-as-code/charts/environments/dev-secrets.yaml | yq e -j - > secrets.json
+      - name: Extract dbPassword
+        id: extract
+        run: |
+          db_password=$(jq -r '.secrets.db.password' secrets.json)
+          echo "db_password=$db_password" >> $GITHUB_ENV             
       - name: Terraform Init - remotestate
         id: init
         run: terraform init
@@ -138,11 +148,11 @@ jobs:
       #   working-directory: infra-as-code/terraform/sample-aws
       - name: Terraform Plan - Infra creation
         id: plan-Infra
-        run: terraform plan -no-color -input=false -var db_password=demo123456   
+        run: terraform plan -no-color -input=false -var db_password=$db_password   
         working-directory: infra-as-code/terraform/sample-aws
       - name: Terraform Apply - Infra creation
         id: apply-Infra
-        run: terraform apply -no-color -input=false -auto-approve -var db_password=demo123456
+        run: terraform apply -no-color -input=false -auto-approve -var db_password=$db_password
         continue-on-error: true  
         working-directory: infra-as-code/terraform/sample-aws
       - name: Install AWS IAM Authenticator
@@ -215,7 +225,17 @@ jobs:
         with:
           yaml-file: infra-as-code/terraform/sample-aws/input.yaml
           debug: true # Optional: set to true to output some debug information
-      # Now, use the env vars in subsequent steps          
+      # Now, use the env vars in subsequent steps 
+      - name: Install dependencies
+        run: sudo apt-get install -y jq
+      - name: Convert YAML to JSON
+        run: |
+          cat deploy-as-code/charts/environments/dev-secrets.yaml | yq e -j - > secrets.json
+      - name: Extract flywayPassword
+        id: extract
+        run: |
+          db_password=$(jq -r '.secrets.db.password' secrets.json)
+          echo "db_password=$db_password" >> $GITHUB_ENV                 
       - name: Install AWS IAM Authenticator
         run: |
           curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/aws-iam-authenticator
@@ -312,7 +332,17 @@ jobs:
         with:
           yaml-file: infra-as-code/terraform/sample-aws/input.yaml
           debug: true # Optional: set to true to output some debug information
-      # Now, use the env vars in subsequent steps          
+      # Now, use the env vars in subsequent steps
+      - name: Install dependencies
+        run: sudo apt-get install -y jq
+      - name: Convert YAML to JSON
+        run: |
+          cat deploy-as-code/charts/environments/dev-secrets.yaml | yq e -j - > secrets.json
+      - name: Extract flywayPassword
+        id: extract
+        run: |
+          db_password=$(jq -r '.secrets.db.password' secrets.json)
+          echo "db_password=$db_password" >> $GITHUB_ENV                
       - name: Install AWS IAM Authenticator
         run: |
           curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/aws-iam-authenticator
