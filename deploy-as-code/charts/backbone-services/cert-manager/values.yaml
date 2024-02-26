@@ -50,6 +50,19 @@ installCRDs: true
 ## @param replicaCount Number of cert-manager replicas
 ##
 replicaCount: 1
+issuer:
+  stage:
+    name: letsencrypt-staging
+    acme:
+      server: https://acme-staging-v02.api.letsencrypt.org/directory
+      email: sre-staff@egovernments.org
+      secretName: letsencrypt-staging
+  prod:
+    name: letsencrypt-prod
+    acme:
+      server: https://acme-v02.api.letsencrypt.org/directory
+      email: sre-staff@egovernments.org
+      secretName: letsencrypt-prod
 
 ## @section Controller deployment parameters
 
