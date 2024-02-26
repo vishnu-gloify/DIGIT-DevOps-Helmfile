@@ -1,5 +1,7 @@
 global:
   domain: digit-lts-test.digit.org
+root-ingress:
+  cert-issuer: "letsencrypt-prod"
 configmaps:
   egov-config:
     data:

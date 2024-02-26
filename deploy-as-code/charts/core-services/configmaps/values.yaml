@@ -143,6 +143,13 @@ configmaps:
       health-project: 'http://health-project.health:8080/'
       health-individual: 'http://health-individual.health:8080/'
 
+root-ingress:
+  name: root-ingress
+  namespace: egov
+  cert-issuer: "letsencrypt-staging"
+  appRoot: citizen
+  serviceName: citizen
+  servicePort: 80
 secrets:
   db:
     name: db
