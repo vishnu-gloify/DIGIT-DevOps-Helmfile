@@ -30,8 +30,8 @@ releases:
   values:
   - ./values/prometheus.yaml
 
-- name: jaeger
-  installed: false
+- name: jaeger-tracing
+  installed: true
   namespace: {{ .Values.namespace | default "default-namespace" }}
   chart: jaegertracing/jaeger
   version: 1.0.0 
