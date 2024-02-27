@@ -1,33 +1,49 @@
-**Steps to be followed:
+**Installation Guide for DIGIT via GitHub Actions in AWS
 **
 
-Create IAM User and generate ACCESS_KEY and SECRET_KEY
-Provide Administrator access to the IAM User
-Fork the Repository in your organization account.
-Click the repository settings and click secrets and variables and add new repository secrets one by one given below.
+This guide provides step-by-step instructions for installing DIGIT using GitHub Actions within an AWS environment.
 
+Prerequisites
+AWS account
+
+Installation Steps:
+
+1. Prepare AWS IAM User
+Create an IAM User in your AWS account.
+Generate ACCESS_KEY and SECRET_KEY for the IAM user.
+Assign Administrator Access to the IAM user for necessary permissions.
+
+2. Configure GitHub Repository
+Fork the Repository into your organization account on GitHub.
+Navigate to the repository settings, then to Secrets and Variables, and add the following repository secrets:
 AWS_ACCESS_KEY_ID: <GENERATED_ACCESS_KEY>
 AWS_SECRET_ACCESS_KEY: <GENERATED_SECRET_KEY>
 AWS_DEFAULT_REGION: ap-south-1
 AWS_REGION: ap-south-1
 
-Open github_actions workflow and add the branch name in which you want to enable github_actions.
+3. Enable GitHub Actions
+Open the GitHub Actions workflow file.
+Specify the branch name you wish to enable GitHub Actions for.
 
-Open input.yaml (infra-as-code/terraform/sample-aws) and enter the details like domain_name, cluster_name, bucket_name and db_name etc.
+4. Configure Infrastructure-as-Code
+Navigate to infra-as-code/terraform/sample-aws.
+Open input.yaml and enter details such as domain_name, cluster_name, bucket_name, and db_name.
 
-Open egov-demo-secrets.yaml (config-as-code/environments) file and enter db_password and ssh_private_key and add public_key in github account
+5. Configure Application Secrets
+Navigate to config-as-code/environments.
+Open egov-demo-secrets.yaml.
+Enter db_password and ssh_private_key.
+Add the public_key to your GitHub account.
 
+6. Generate SSH Key Pair
+Choose one of the following methods to generate an SSH key pair:
 
-You can follow the below steps to generate ssh key pair:
+Method a: Use an online website (Note: This is not recommended for production setups, only for demo purposes): https://8gwifi.org/sshfunctions.jsp
+Method b: Use OpenSSL commands:
+openssl genpkey -algorithm RSA -out private_key.pem
+openssl rsa -pubout -in private_key.pem -out public_key.pem
 
-To Generate ssh key pairs (Use either method (a) or method (b)).
-
-a. Using online website (not recommended in prod setup. To be only used for demo setups): https://8gwifi.org/sshfunctions.jsp
-b. Using openssl :
-
-openssl genpkey -algorithm RSA -out private_key.pem openssl rsa -pubout -in private_key.pem -out public_key.pem
-
-Now, After entering all the details, push these changes to the remote github repository. 
-
-Open the actions in the github account, you can view the workflow has been stated and pipelines are completing successfully.
+7. Finalize Installation
+After entering all the details, push these changes to the remote GitHub repository.
+Open the Actions tab in your GitHub account to view the workflow. You should see that the workflow has started, and the pipelines are completing successfully.
 
