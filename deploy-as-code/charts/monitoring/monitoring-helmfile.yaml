@@ -8,7 +8,7 @@ repositories:
 
 values:
   - namespace: monitoring
-  - host: digit-lts-demo.digit.org
+  - host: actions.digit.org
 
 
 releases:
@@ -31,7 +31,7 @@ releases:
   - ./values/prometheus.yaml
 
 - name: jaeger-tracing
-  installed: true
+  installed: false
   namespace: {{ .Values.namespace | default "default-namespace" }}
   chart: jaegertracing/jaeger
   version: 1.0.0 
