@@ -15,6 +15,7 @@ Assign Administrator Access to the IAM user for necessary permissions.
 2. Configure GitHub Repository
 Fork the Repository into your organization account on GitHub.
 Navigate to the repository settings, then to Secrets and Variables, and add the following repository secrets:
+
 AWS_ACCESS_KEY_ID: <GENERATED_ACCESS_KEY>
 AWS_SECRET_ACCESS_KEY: <GENERATED_SECRET_KEY>
 AWS_DEFAULT_REGION: ap-south-1
