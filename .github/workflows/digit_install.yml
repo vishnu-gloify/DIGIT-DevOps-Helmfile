@@ -353,8 +353,8 @@ jobs:
         run: |
           aws eks update-kubeconfig --region ${{ secrets.AWS_REGION }} --name $CLUSTER_NAME
           cat ~/.kube/config > kubeconfig
-      - name: Verify kubectl configuration
-        run: kubectl config view 
+      - name: creating namespace
+        run: kubectl create namespace egov
       - name: Verfiy kubectl get nodes
         run: |
           kubectl get nodes  
