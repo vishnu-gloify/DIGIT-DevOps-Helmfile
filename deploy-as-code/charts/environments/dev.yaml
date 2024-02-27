@@ -1,5 +1,5 @@
 global:
-  domain: digit-lts-test.digit.org
+  domain: <domain_name>
 root-ingress:
   cert-issuer: "letsencrypt-prod"
 configmaps:
