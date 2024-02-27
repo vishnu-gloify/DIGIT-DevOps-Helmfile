@@ -1,12 +1,11 @@
-**Installation Guide for DIGIT via GitHub Actions in AWS
-**
+**Installation Guide for DIGIT via GitHub Actions in AWS**
 
 This guide provides step-by-step instructions for installing DIGIT using GitHub Actions within an AWS environment.
 
 Prerequisites
 AWS account
 
-Installation Steps:
+**Installation Steps:**
 
 1. Prepare AWS IAM User
 Create an IAM User in your AWS account.
