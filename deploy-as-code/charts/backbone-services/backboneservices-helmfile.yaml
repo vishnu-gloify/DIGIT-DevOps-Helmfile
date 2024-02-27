@@ -14,10 +14,12 @@ releases:
 - name: cert-manager
   chart: ./cert-manager
   installed: true
+  namespace: egov
   version: 0.5.2
   disableValidation: true
   values:
     - ./cert-manager/values.yaml
+
 
 - name: minio
   installed: true
