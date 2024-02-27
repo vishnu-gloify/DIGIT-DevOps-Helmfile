@@ -16,7 +16,6 @@ releases:
   installed: true
   version: 0.5.2
   disableValidation: true
-  <<: *default
   values:
     - ./cert-manager/values.yaml
 
