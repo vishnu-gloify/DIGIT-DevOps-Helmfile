@@ -7,7 +7,7 @@ cluster_name: "digit-lts-demo"
 ssh_key_name: "digit-lts-ssh-key" 
 
 # Replace with public key which you want to add in your EC2 machines # ssh key which you want to add in your EC2 machines
-public_ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMMO2fKEHqIvKxME67L/nDtBRUNDiqtshgCI5QnBmQMOb6zdjk5sVgPDdV8cHwdztfPJWk5pcEasyIsiqDLyIODH0FQl6pwytVsfkI2AHIwJ1zyDB1fq0b67uEoEyyehYEstbyHEpHKRtejftlfBgcOXnmVVMSH9vlwJ8I47xBPO+CncHo2V+CCqJckaneH0BmED0e1EUnCJD2Dx5fKt0V4KB8+KXxw+cs/AYw11IF0eN8cYXDKH9s/c7HXHSy89dHcwHzmWcLXcJV6b2p3kbL6YGwyfWG/4He5sr8cMIA/Rmp744hszZECbKFaychncDtSI30huWq4lkS2lSGEuMJ"
+public_ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDFObV40jHfjCTtM+ctyKG3bBDTepw2n++ivswDzilKgD8QVU5J1gc9gSo+S95YE0lvuZaUc8bld+pp9qcyk6T06t7q75qTYLKW4io0h9UjG0RVzurlMb+xywehy9NHh6gquYJJIy1n2FbTqXJlEfQ1nSmFi/OD4ZCOeidozcw4VLHr6sYJItxs5/UAl7Kc/Hf/5nldlTXbW1g+7GyXJG7z8sEaCXskqEkmvrGz90L0M3vDaA9Rtjk1bqv4fbWspKqtR5tZ/HnmgfzhnhIw0pP0bGkdJ3SFNFvnZWjPceO9pReccHod8V3H7qTmxVY7zboc8Fc7Qwp/UWbI0dEbT1TIZdXM4ZqD2HsygTWHq4V5SiysbF7t/5ngMNiRm370tNtteLkdiJ/cni+xuyZTpf7mBcNgp98t+m3MsNG5glGF2hKf6lFKVYaRfAbQ+VhEtU3OTOEKtoIiTSc92S+dLIEaZhS/cwOIp0I4uKmClIKZ5vueldIiySCVPoGcsoE4W+c= ubuntu@ip-172-31-28-246"
 
 # Name you want to give to your Database
 # DB name must contain only alphanumeric characters
